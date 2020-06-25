@@ -1,0 +1,19 @@
+Implement strStr().
+
+strstr - locate a substring ( needle ) in a string ( haystack ). 
+Try not to use standard library string functions for this question.
+Returns the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+
+class Solution:
+    # @param A : string
+    # @param B : string
+    # @return an integer
+    def strStr(self, A, B):
+        if(B in A):
+           for i in range(len(A)):
+                if(A[i] in B):
+                   p=''.join(A[i:i+len(B)])
+                if(p==B):
+                    return i
+        else:
+            return -1
