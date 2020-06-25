@@ -1,0 +1,12 @@
+Problem Description:
+Find the contiguous subarray within an array, A of length N which has the largest sum.
+
+class Solution:
+    # @param A : tuple of integers
+    # @return an integer
+    def maxSubArray(self, A):
+        max1=max2=A[0]
+        for i in range(1,len(A)):
+            max1=max(A[i],max1+A[i])
+            max2=max(max2,max1)
+        return max2 
