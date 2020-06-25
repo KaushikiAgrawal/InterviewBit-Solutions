@@ -1,0 +1,43 @@
+Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
+
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ * 
+ * typedef struct ListNode listnode;
+ * 
+ * listnode* listnode_new(int val) {
+ *     listnode* node = (listnode *) malloc(sizeof(listnode));
+ *     node->val = val;
+ *     node->next = NULL;
+ *     return node;
+ * }
+ */
+/**
+ * @input A : Head pointer of linked list 
+ * 
+ * @Output head pointer of list.
+ */
+listnode* detectCycle(listnode* A) {
+    listnode *fast=A,*slow=A;
+    while(fast!=NULL && fast->next !=NULL)
+    {
+        fast=fast->next->next;
+        slow=slow->next;
+        if(fast==slow)
+        {
+            slow=A;
+            while(slow!=fast)
+            {
+                slow=slow->next;
+                fast=fast->next;
+            }
+            return slow;
+        }
+    }
+    return NULL;
+}
