@@ -1,0 +1,32 @@
+Reverse digits of an integer.
+
+Example1:
+x = 123,
+return 321
+
+Example2:
+x = -123,
+return -321
+
+Return 0 if the result overflows and does not fit in a 32 bit signed integer
+
+class Solution:
+    # @param A : integer
+    # @return an integer
+    def reverse(self, A):
+        f=0
+        rev=0
+        if(A<0):
+            A=A*-1
+            f=1
+        while(A > 0): 
+            r = A % 10
+            rev = rev * 10 + r 
+            A = A // 10
+        if(rev<-2147483648  or rev> 2147483647):
+            return 0
+        if(f==1):
+            return rev* -1
+        elif f==0:
+            return rev
+      
