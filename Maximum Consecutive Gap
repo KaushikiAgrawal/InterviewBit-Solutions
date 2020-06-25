@@ -1,0 +1,18 @@
+Given an unsorted array, find the maximum difference between the successive elements in its sorted form.
+Return 0 if the array contains less than 2 elements.
+
+class Solution:
+    # @param A : tuple of integers
+    # @return an integer
+    def maximumGap(self, A):
+        B=list(A)
+        B.sort()
+        sum1=0
+        max1=0
+        if(len(B)<2):
+            return 0
+        for i in range(len(B)-1):
+            sum1=B[i+1]-B[i]
+            if(sum1>max1):
+                max1=sum1
+        return max1
