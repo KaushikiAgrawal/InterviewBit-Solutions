@@ -1,0 +1,18 @@
+You are climbing a stair case and it takes A steps to reach to the top.
+
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+
+/**
+ * @input A : Integer
+ * 
+ * @Output Integer
+ */
+int climbStairs(int A) {
+    int a[A+1],i;
+    a[0]=1;
+    a[1]=1;
+    a[2]=2;
+    for(i=3;i<=A;i++)
+        a[i]=a[i-1]+a[i-2];
+    return a[A];
+}
