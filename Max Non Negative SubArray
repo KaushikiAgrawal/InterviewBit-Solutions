@@ -1,0 +1,33 @@
+Problem Description
+Given an array of integers, A of length N, find out the maximum sum sub-array of non negative numbers from A.
+The sub-array should be contiguous i.e., a sub-array created by choosing the second and fourth element and skipping the third element is invalid.
+Maximum sub-array is defined in terms of the sum of the elements in the sub-array.
+Find and return the required subarray.
+
+
+class Solution:
+    # @param A : list of integers
+    # @return a list of integers
+    def maxset(self, A):
+        l=[]
+        j=0
+        for i in range(len(A)):
+            if(i==0):
+                l.append([])
+            if(A[i]>=0):
+                l[j].append(A[i])
+                
+            else:
+                l.append([])
+                j+=1
+        p=[]
+        m=0
+        for i in l:
+            sum1=sum(i)
+            if(sum1>m):
+                m=sum1
+                p=i
+            if(sum1==m):
+                if(len(p)<len(i)):
+                    p=i
+        return p
