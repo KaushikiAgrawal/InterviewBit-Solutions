@@ -1,0 +1,21 @@
+You are given a string S, and you have to find all the amazing substrings of S.
+
+Amazing Substring is one that starts with a vowel (a, e, i, o, u, A, E, I, O, U).
+
+Input
+
+Only argument given is string S.
+
+Output
+
+Return a single integer X mod 10003, here X is number of Amazing Substrings in given string.
+
+class Solution:
+    # @param A : string
+    # @return an integer
+    def solve(self, A):
+        c=0
+        for i in range(len(A)):
+            if(A[i] in ['A','E','I','O','U','a','e','i','o','u']):
+                c=c+(len(A)-i)
+        return c%10003
